@@ -1,0 +1,1517 @@
+{
+  "version": "0.1.1",
+  "name": "solpipe_treasury",
+  "instructions": [
+    {
+      "name": "createController",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "closeController",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "closeControllerVault",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "controllerVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ownerVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "feePayer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "transferToController",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "controllerVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegation",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "delegationVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "feePayer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "transferToDelegation",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "controllerVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegation",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "delegationVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "feePayer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "createRuleAccumulator",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "linker",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "tree",
+          "type": "bytes"
+        }
+      ]
+    },
+    {
+      "name": "ruleAddRateLimiter",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "maxSpend",
+          "type": "u64"
+        },
+        {
+          "name": "deltaSlot",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "ruleAddAuthorizationConstraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authorizer",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "ruleAddProgramConstraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "program",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "ruleAddBalanceConstraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "maxBalance",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "ruleAddSweep",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "destination",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "minBalance",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "ruleAddSweepAta",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "feePayer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "destination",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destinationOwner",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "minBalance",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "delegate",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegation",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "accumulator",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "linker",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "maxSpendState",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "approveDelegation",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegation",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "rejectDelegation",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegation",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rejector",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "createSpendRequestDirect",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "delegation",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "delegationVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destinationVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destinationOwner",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "linker",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clock",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "tree",
+          "type": "bytes"
+        }
+      ]
+    },
+    {
+      "name": "completeSpendRequestDirect",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegation",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegationVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "destinationVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "linker",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "closeDelegation",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegation",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "linker",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "ruleProcessRateLimiter",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "requiredMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "linker",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "maxSpend",
+          "type": "u64"
+        },
+        {
+          "name": "deltaSlot",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "ruleProcessAuthorizationConstraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "requiredAuthorizer",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "authorizer",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "linker",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "ruleProcessNonAuthorizationConstraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "requiredAuthorizer",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "linker",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "ruleProcessProgramConstraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "requiredProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "linker",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "ruleProcessBalanceConstraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "delegationVault",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "linker",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "maxBalance",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "ruleProcessSweep",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "requiredDestination",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "linker",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "minBalance",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "consolidateVault",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "delegation",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rentSolVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ataVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vault1",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vault2",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true
+        },
+        {
+          "name": "vault3",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true
+        },
+        {
+          "name": "vault4",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true
+        },
+        {
+          "name": "vault5",
+          "isMut": true,
+          "isSigner": false,
+          "isOptional": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "transferSol",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "sourceVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "sourceOwner",
+          "isMut": false,
+          "isSigner": true
+        },
+        {
+          "name": "tmpSys",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "subsidize",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "sourceOwner",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tmpSys",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "changeSol",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "target",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initializeDestination",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "accounts": [
+        {
+          "name": "destinationOwner",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "destinationVault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Controller",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "owner",
+            "type": "publicKey"
+          },
+          {
+            "name": "rules",
+            "type": "publicKey"
+          },
+          {
+            "name": "delegationCount",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Delegation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "controller",
+            "type": "publicKey"
+          },
+          {
+            "name": "ruleSetCount",
+            "type": "u8"
+          },
+          {
+            "name": "ruleSetHash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": "SpendState"
+            }
+          },
+          {
+            "name": "requestedSlot",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RuleAccumulator",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "controller",
+            "type": "publicKey"
+          },
+          {
+            "name": "index",
+            "type": "u8"
+          },
+          {
+            "name": "count",
+            "type": "u8"
+          },
+          {
+            "name": "hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "SpendRequest",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "delegation",
+            "type": "publicKey"
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": "SpendState"
+            }
+          },
+          {
+            "name": "context",
+            "type": {
+              "defined": "TransferContext"
+            }
+          },
+          {
+            "name": "result",
+            "type": "u64"
+          },
+          {
+            "name": "index",
+            "type": "u8"
+          },
+          {
+            "name": "count",
+            "type": "u8"
+          },
+          {
+            "name": "tree",
+            "type": "bytes"
+          },
+          {
+            "name": "hash",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "SpendState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "list",
+            "type": {
+              "vec": {
+                "defined": "SpendStateSlot"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "SpendStateSlot",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "publicKey"
+          },
+          {
+            "name": "index",
+            "type": "u64"
+          },
+          {
+            "name": "lastSpend",
+            "type": "u64"
+          },
+          {
+            "name": "lastSlot",
+            "type": "u64"
+          },
+          {
+            "name": "genericScore",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TransferContext",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "programId",
+            "type": "publicKey"
+          },
+          {
+            "name": "linker",
+            "type": "publicKey"
+          },
+          {
+            "name": "sourceVault",
+            "type": "publicKey"
+          },
+          {
+            "name": "destinationVault",
+            "type": "publicKey"
+          },
+          {
+            "name": "mint",
+            "type": "publicKey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "slot",
+            "type": "u64"
+          },
+          {
+            "name": "isSweep",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unknown",
+      "msg": "unknown error"
+    },
+    {
+      "code": 6001,
+      "name": "FailedToRead",
+      "msg": "failed to read"
+    },
+    {
+      "code": 6002,
+      "name": "BadBoolean",
+      "msg": "Bad Boolean"
+    },
+    {
+      "code": 6003,
+      "name": "IndexOutOfRange",
+      "msg": "Index out of range"
+    }
+  ]
+}

@@ -1,3 +1,3 @@
-anchor_gen::generate_cpi_crate!("idl.json");
+use anchor_lang::declare_id;
 
-declare_id!("TRSY7YgS3tcDoi6ZgTp2MmPJpXHyCVrGaFhL7HLdQc9");
+anchor_gen::generate_cpi_crate!("idl.json");

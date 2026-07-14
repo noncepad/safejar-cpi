@@ -1,9 +1,14 @@
 {
-  "version": "0.1.1",
-  "name": "solpipe_treasury",
+  "address": "jarMRc5v8QZLn8AawsmwN426mG9HHVaAtiZwa7rMi9J",
+  "metadata": {
+    "name": "solpipe_treasury",
+    "version": "0.3.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
   "instructions": [
     {
-      "name": "createController",
+      "name": "approve_delegation",
       "docs": [
         ".",
         "",
@@ -11,196 +16,85 @@
         "",
         "This function will return an error if ."
       ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        },
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "closeController",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
+      "discriminator": [
+        101,
+        244,
+        227,
+        116,
+        198,
+        137,
+        117,
+        56
       ],
       "accounts": [
         {
           "name": "controller",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "closeControllerVault",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "controllerVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "ownerVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        },
-        {
-          "name": "feePayer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "transferToController",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "controllerVault",
-          "isMut": true,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
         },
         {
           "name": "delegation",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "delegationVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller"
+              },
+              {
+                "kind": "account",
+                "path": "delegation.rule_set_hash",
+                "account": "Delegation"
+              }
+            ]
+          }
         },
         {
           "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        },
-        {
-          "name": "feePayer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "signer": true
         }
       ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
+      "args": []
     },
     {
-      "name": "transferToDelegation",
+      "name": "close_controller",
       "docs": [
         ".",
         "",
@@ -208,67 +102,324 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        212,
+        183,
+        126,
+        128,
+        133,
+        83,
+        169,
+        242
+      ],
       "accounts": [
         {
           "name": "controller",
-          "isMut": false,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
         },
         {
-          "name": "controllerVault",
-          "isMut": true,
-          "isSigner": false
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "close_controller_vault",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        191,
+        29,
+        194,
+        106,
+        218,
+        87,
+        181,
+        35
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "controller_vault",
+          "writable": true
+        },
+        {
+          "name": "owner_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "owner"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "fee_payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "close_delegation",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        41,
+        110,
+        46,
+        165,
+        0,
+        109,
+        193,
+        193
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
         },
         {
           "name": "delegation",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "delegationVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller"
+              },
+              {
+                "kind": "account",
+                "path": "delegation.rule_set_hash",
+                "account": "Delegation"
+              }
+            ]
+          }
         },
         {
           "name": "owner",
-          "isMut": false,
-          "isSigner": true
+          "signer": true
         },
         {
-          "name": "feePayer",
-          "isMut": true,
-          "isSigner": true
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         }
       ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
+      "args": []
     },
     {
-      "name": "createRuleAccumulator",
+      "name": "complete_spend_request_direct",
       "docs": [
         ".",
         "",
@@ -276,41 +427,307 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        209,
+        122,
+        240,
+        139,
+        156,
+        87,
+        23,
+        98
+      ],
       "accounts": [
         {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
+          "name": "request",
+          "writable": true
         },
         {
-          "name": "accumulator",
-          "isMut": true,
-          "isSigner": true
+          "name": "delegation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "delegation.controller",
+                "account": "Delegation"
+              },
+              {
+                "kind": "account",
+                "path": "delegation.rule_set_hash",
+                "account": "Delegation"
+              }
+            ]
+          }
         },
         {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
+          "name": "delegation_vault",
+          "writable": true
+        },
+        {
+          "name": "destination_vault",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
           "name": "linker",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "consolidate_vault",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        112,
+        145,
+        125,
+        243,
+        126,
+        60,
+        167,
+        67
+      ],
+      "accounts": [
+        {
+          "name": "delegation",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "delegation.controller",
+                "account": "Delegation"
+              },
+              {
+                "kind": "account",
+                "path": "delegation.rule_set_hash",
+                "account": "Delegation"
+              }
+            ]
+          }
+        },
+        {
+          "name": "rent_sol_vault",
+          "writable": true
+        },
+        {
+          "name": "ata_vault",
+          "writable": true
+        },
+        {
+          "name": "vault_1",
+          "writable": true
+        },
+        {
+          "name": "vault_2",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "vault_3",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "vault_4",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "vault_5",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "mint"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_controller",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        176,
+        246,
+        168,
+        148,
+        10,
+        12,
+        2,
+        48
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
         },
         {
           "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_rule_accumulator",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        218,
+        173,
+        161,
+        64,
+        27,
+        125,
+        155,
+        192
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
         },
         {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "accumulator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "linker",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
       "args": [
@@ -321,7 +738,7 @@
       ]
     },
     {
-      "name": "ruleAddRateLimiter",
+      "name": "create_spend_request_direct",
       "docs": [
         ".",
         "",
@@ -329,246 +746,159 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        100,
+        75,
+        230,
+        27,
+        45,
+        93,
+        229,
+        133
+      ],
       "accounts": [
         {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
+          "name": "delegation"
         },
         {
-          "name": "accumulator",
-          "isMut": true,
-          "isSigner": false
+          "name": "request",
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
+          "name": "delegation_vault",
+          "writable": true
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          "name": "destination_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "destination_owner"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "destination_owner"
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "linker",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "clock",
+          "address": "SysvarC1ock11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         }
       ],
       "args": [
         {
-          "name": "maxSpend",
+          "name": "amount",
           "type": "u64"
         },
         {
-          "name": "deltaSlot",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "ruleAddAuthorizationConstraint",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "accumulator",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "authorizer",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "ruleAddProgramConstraint",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "accumulator",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "program",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "ruleAddBalanceConstraint",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "accumulator",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "maxBalance",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "ruleAddSweep",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "accumulator",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        },
-        {
-          "name": "destination",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "minBalance",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "ruleAddSweepAta",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "controller",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "accumulator",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
-        },
-        {
-          "name": "feePayer",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "destination",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "destinationOwner",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "minBalance",
-          "type": "u64"
+          "name": "tree",
+          "type": "bytes"
         }
       ]
     },
@@ -581,57 +911,109 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        90,
+        147,
+        75,
+        178,
+        85,
+        88,
+        4,
+        137
+      ],
       "accounts": [
         {
           "name": "controller",
-          "isMut": true,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
         },
         {
           "name": "delegation",
-          "isMut": true,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller"
+              },
+              {
+                "kind": "account",
+                "path": "accumulator.hash",
+                "account": "RuleAccumulator"
+              }
+            ]
+          }
         },
         {
           "name": "accumulator",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
           "name": "linker",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
           "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          "address": "SysvarRent111111111111111111111111111111111"
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
           "name": "clock",
-          "isMut": false,
-          "isSigner": false
+          "address": "SysvarC1ock11111111111111111111111111111111"
         }
       ],
       "args": [
         {
-          "name": "maxSpendState",
+          "name": "max_spend_state",
           "type": "u8"
         }
       ]
     },
     {
-      "name": "approveDelegation",
+      "name": "initialize_destination",
       "docs": [
         ".",
         "",
@@ -639,27 +1021,135 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        217,
+        179,
+        168,
+        9,
+        107,
+        78,
+        171,
+        59
+      ],
       "accounts": [
         {
-          "name": "controller",
-          "isMut": true,
-          "isSigner": false
+          "name": "destination_owner"
         },
         {
-          "name": "delegation",
-          "isMut": false,
-          "isSigner": false
+          "name": "destination_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "destination_owner"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
         },
         {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
+          "name": "mint"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
         }
       ],
       "args": []
     },
     {
-      "name": "rejectDelegation",
+      "name": "reject_delegation",
       "docs": [
         ".",
         "",
@@ -667,32 +1157,91 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        38,
+        166,
+        74,
+        20,
+        28,
+        123,
+        90,
+        251
+      ],
       "accounts": [
         {
           "name": "controller",
-          "isMut": true,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
         },
         {
           "name": "delegation",
-          "isMut": true,
-          "isSigner": false
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller"
+              },
+              {
+                "kind": "account",
+                "path": "delegation.rule_set_hash",
+                "account": "Delegation"
+              }
+            ]
+          }
         },
         {
           "name": "rejector",
-          "isMut": true,
-          "isSigner": true
+          "writable": true,
+          "signer": true
         },
         {
           "name": "clock",
-          "isMut": false,
-          "isSigner": false
+          "address": "SysvarC1ock11111111111111111111111111111111"
         }
       ],
       "args": []
     },
     {
-      "name": "createSpendRequestDirect",
+      "name": "rule_add_authorization_constraint",
       "docs": [
         ".",
         "",
@@ -700,172 +1249,60 @@
         "",
         "This function will return an error if ."
       ],
-      "accounts": [
-        {
-          "name": "delegation",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "request",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "delegationVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "destinationVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "destinationOwner",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "linker",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "clock",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        }
-      ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        },
-        {
-          "name": "tree",
-          "type": "bytes"
-        }
-      ]
-    },
-    {
-      "name": "completeSpendRequestDirect",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "request",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "delegation",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "delegationVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "destinationVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "linker",
-          "isMut": true,
-          "isSigner": true
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "closeDelegation",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
+      "discriminator": [
+        171,
+        239,
+        3,
+        24,
+        171,
+        164,
+        35,
+        6
       ],
       "accounts": [
         {
           "name": "controller",
-          "isMut": true,
-          "isSigner": false
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
         },
         {
-          "name": "delegation",
-          "isMut": true,
-          "isSigner": false
+          "name": "accumulator",
+          "writable": true
         },
         {
-          "name": "owner",
-          "isMut": false,
-          "isSigner": true
+          "name": "authorizer"
         },
         {
           "name": "linker",
-          "isMut": true,
-          "isSigner": true
-        },
-        {
-          "name": "rent",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "signer": true
         }
       ],
       "args": []
     },
     {
-      "name": "ruleProcessRateLimiter",
+      "name": "rule_add_balance_constraint",
       "docs": [
         ".",
         "",
@@ -873,36 +1310,142 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        196,
+        118,
+        241,
+        188,
+        249,
+        134,
+        208,
+        52
+      ],
       "accounts": [
         {
-          "name": "request",
-          "isMut": true,
-          "isSigner": false
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
         },
         {
-          "name": "requiredMint",
-          "isMut": false,
-          "isSigner": false
+          "name": "accumulator",
+          "writable": true
         },
         {
           "name": "linker",
-          "isMut": false,
-          "isSigner": true
+          "signer": true
+        },
+        {
+          "name": "mint"
         }
       ],
       "args": [
         {
-          "name": "maxSpend",
-          "type": "u64"
-        },
-        {
-          "name": "deltaSlot",
+          "name": "max_balance",
           "type": "u64"
         }
       ]
     },
     {
-      "name": "ruleProcessAuthorizationConstraint",
+      "name": "rule_add_escrow",
+      "docs": [
+        "Add an escrow rule to a rule accumulator.",
+        "",
+        "The escrow rule encodes two conditional transfer paths:",
+        "- **Release**: after `unlock_slot`, funds may be sent to `recipient_vault`",
+        "- **Refund**: after `expiry_slot`, funds may be returned to `depositor_vault`",
+        "",
+        "# Errors",
+        "",
+        "Returns an error if `unlock_slot` is zero or `expiry_slot <= unlock_slot`."
+      ],
+      "discriminator": [
+        119,
+        163,
+        152,
+        17,
+        15,
+        176,
+        137,
+        68
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
+        },
+        {
+          "name": "accumulator",
+          "writable": true
+        },
+        {
+          "name": "recipient_vault"
+        },
+        {
+          "name": "depositor_vault"
+        },
+        {
+          "name": "linker",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "unlock_slot",
+          "type": "u64"
+        },
+        {
+          "name": "expiry_slot",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "rule_add_program_constraint",
       "docs": [
         ".",
         "",
@@ -910,32 +1453,410 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        114,
+        29,
+        10,
+        239,
+        104,
+        131,
+        154,
+        250
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
+        },
+        {
+          "name": "accumulator",
+          "writable": true
+        },
+        {
+          "name": "program"
+        },
+        {
+          "name": "linker",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "rule_add_rate_limiter",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        201,
+        25,
+        75,
+        83,
+        247,
+        190,
+        113,
+        118
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
+        },
+        {
+          "name": "accumulator",
+          "writable": true
+        },
+        {
+          "name": "linker",
+          "signer": true
+        },
+        {
+          "name": "mint"
+        }
+      ],
+      "args": [
+        {
+          "name": "max_spend",
+          "type": "u64"
+        },
+        {
+          "name": "delta_slot",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "rule_add_sweep",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        39,
+        68,
+        117,
+        155,
+        156,
+        81,
+        30,
+        7
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
+        },
+        {
+          "name": "accumulator",
+          "writable": true
+        },
+        {
+          "name": "linker",
+          "signer": true
+        },
+        {
+          "name": "destination"
+        }
+      ],
+      "args": [
+        {
+          "name": "min_balance",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "rule_add_sweep_ata",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        93,
+        69,
+        11,
+        26,
+        142,
+        13,
+        34,
+        95
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
+        },
+        {
+          "name": "accumulator",
+          "writable": true
+        },
+        {
+          "name": "linker",
+          "signer": true
+        },
+        {
+          "name": "fee_payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "destination",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "destination_owner"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "destination_owner"
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        }
+      ],
+      "args": [
+        {
+          "name": "min_balance",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "rule_process_authorization_constraint",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        251,
+        36,
+        28,
+        93,
+        153,
+        80,
+        31,
+        233
+      ],
       "accounts": [
         {
           "name": "request",
-          "isMut": true,
-          "isSigner": false
+          "writable": true
         },
         {
-          "name": "requiredAuthorizer",
-          "isMut": false,
-          "isSigner": false
+          "name": "required_authorizer"
         },
         {
           "name": "authorizer",
-          "isMut": false,
-          "isSigner": true
+          "signer": true
         },
         {
           "name": "linker",
-          "isMut": false,
-          "isSigner": true
+          "signer": true
         }
       ],
       "args": []
     },
     {
-      "name": "ruleProcessNonAuthorizationConstraint",
+      "name": "rule_process_balance_constraint",
       "docs": [
         ".",
         "",
@@ -943,121 +1864,89 @@
         "",
         "This function will return an error if ."
       ],
-      "accounts": [
-        {
-          "name": "request",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "requiredAuthorizer",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "linker",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "ruleProcessProgramConstraint",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
+      "discriminator": [
+        188,
+        149,
+        11,
+        31,
+        253,
+        16,
+        228,
+        79
       ],
       "accounts": [
         {
           "name": "request",
-          "isMut": true,
-          "isSigner": false
+          "writable": true
         },
         {
-          "name": "requiredProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "delegation_vault"
         },
         {
           "name": "linker",
-          "isMut": false,
-          "isSigner": true
-        }
-      ],
-      "args": []
-    },
-    {
-      "name": "ruleProcessBalanceConstraint",
-      "docs": [
-        ".",
-        "",
-        "# Errors",
-        "",
-        "This function will return an error if ."
-      ],
-      "accounts": [
-        {
-          "name": "request",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "delegationVault",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "linker",
-          "isMut": false,
-          "isSigner": true
+          "signer": true
         }
       ],
       "args": [
         {
-          "name": "maxBalance",
+          "name": "max_balance",
           "type": "u64"
         }
       ]
     },
     {
-      "name": "ruleProcessSweep",
+      "name": "rule_process_escrow",
       "docs": [
-        ".",
+        "Process an escrow rule against an in-flight spend request.",
+        "",
+        "The caller supplies the same `unlock_slot`, `expiry_slot`, `required_recipient_vault`,",
+        "and `required_depositor_vault` that were used when the rule was created.  The",
+        "program re-derives the rule hash to verify integrity, then evaluates the escrow",
+        "condition against the current slot and the spend request's destination vault.",
         "",
         "# Errors",
         "",
-        "This function will return an error if ."
+        "Returns an error if the hash check fails or neither release nor refund condition is met."
+      ],
+      "discriminator": [
+        52,
+        206,
+        111,
+        118,
+        129,
+        120,
+        151,
+        158
       ],
       "accounts": [
         {
           "name": "request",
-          "isMut": true,
-          "isSigner": false
+          "writable": true
         },
         {
-          "name": "requiredDestination",
-          "isMut": false,
-          "isSigner": false
+          "name": "required_recipient_vault"
+        },
+        {
+          "name": "required_depositor_vault"
         },
         {
           "name": "linker",
-          "isMut": false,
-          "isSigner": true
+          "signer": true
         }
       ],
       "args": [
         {
-          "name": "minBalance",
+          "name": "unlock_slot",
+          "type": "u64"
+        },
+        {
+          "name": "expiry_slot",
           "type": "u64"
         }
       ]
     },
     {
-      "name": "consolidateVault",
+      "name": "rule_process_non_authorization_constraint",
       "docs": [
         ".",
         "",
@@ -1065,66 +1954,33 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        85,
+        194,
+        145,
+        157,
+        56,
+        95,
+        219,
+        251
+      ],
       "accounts": [
         {
-          "name": "delegation",
-          "isMut": false,
-          "isSigner": false
+          "name": "request",
+          "writable": true
         },
         {
-          "name": "rentSolVault",
-          "isMut": true,
-          "isSigner": false
+          "name": "required_authorizer"
         },
         {
-          "name": "ataVault",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "vault1",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "vault2",
-          "isMut": true,
-          "isSigner": false,
-          "isOptional": true
-        },
-        {
-          "name": "vault3",
-          "isMut": true,
-          "isSigner": false,
-          "isOptional": true
-        },
-        {
-          "name": "vault4",
-          "isMut": true,
-          "isSigner": false,
-          "isOptional": true
-        },
-        {
-          "name": "vault5",
-          "isMut": true,
-          "isSigner": false,
-          "isOptional": true
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          "name": "linker",
+          "signer": true
         }
       ],
       "args": []
     },
     {
-      "name": "transferSol",
+      "name": "rule_process_program_constraint",
       "docs": [
         ".",
         "",
@@ -1132,29 +1988,112 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        70,
+        191,
+        225,
+        52,
+        169,
+        173,
+        48,
+        108
+      ],
       "accounts": [
         {
-          "name": "sourceVault",
-          "isMut": true,
-          "isSigner": false
+          "name": "request",
+          "writable": true
         },
         {
-          "name": "sourceOwner",
-          "isMut": false,
-          "isSigner": true
+          "name": "required_program"
         },
         {
-          "name": "tmpSys",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "linker",
+          "signer": true
         }
       ],
       "args": []
+    },
+    {
+      "name": "rule_process_rate_limiter",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        144,
+        213,
+        153,
+        15,
+        15,
+        118,
+        126,
+        6
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "writable": true
+        },
+        {
+          "name": "required_mint"
+        },
+        {
+          "name": "linker",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "max_spend",
+          "type": "u64"
+        },
+        {
+          "name": "delta_slot",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "rule_process_sweep",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        177,
+        114,
+        74,
+        244,
+        36,
+        7,
+        67,
+        200
+      ],
+      "accounts": [
+        {
+          "name": "request",
+          "writable": true
+        },
+        {
+          "name": "required_destination"
+        },
+        {
+          "name": "linker",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "min_balance",
+          "type": "u64"
+        }
+      ]
     },
     {
       "name": "subsidize",
@@ -1165,46 +2104,48 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        140,
+        134,
+        97,
+        122,
+        151,
+        111,
+        47,
+        41
+      ],
       "accounts": [
         {
-          "name": "sourceOwner",
-          "isMut": false,
-          "isSigner": false
+          "name": "source_owner"
         },
         {
-          "name": "tmpSys",
-          "isMut": true,
-          "isSigner": true
+          "name": "tmp_sys",
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "changeSol",
-          "isMut": true,
-          "isSigner": true
+          "name": "change_sol",
+          "writable": true,
+          "signer": true
         },
         {
           "name": "target",
-          "isMut": true,
-          "isSigner": false
+          "writable": true
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          "name": "mint"
         },
         {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
         },
         {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         },
         {
           "name": "rent",
-          "isMut": false,
-          "isSigner": false
+          "address": "SysvarRent111111111111111111111111111111111"
         }
       ],
       "args": [
@@ -1215,7 +2156,7 @@
       ]
     },
     {
-      "name": "initializeDestination",
+      "name": "transfer_sol",
       "docs": [
         ".",
         "",
@@ -1223,47 +2164,628 @@
         "",
         "This function will return an error if ."
       ],
+      "discriminator": [
+        78,
+        10,
+        236,
+        247,
+        109,
+        117,
+        21,
+        76
+      ],
       "accounts": [
         {
-          "name": "destinationOwner",
-          "isMut": false,
-          "isSigner": false
+          "name": "source_vault",
+          "writable": true
         },
         {
-          "name": "destinationVault",
-          "isMut": true,
-          "isSigner": false
+          "name": "source_owner",
+          "signer": true
         },
         {
-          "name": "mint",
-          "isMut": false,
-          "isSigner": false
+          "name": "tmp_sys",
+          "writable": true
         },
         {
-          "name": "associatedTokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "tokenProgram",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "payer",
-          "isMut": true,
-          "isSigner": true
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       ],
       "args": []
+    },
+    {
+      "name": "transfer_to_controller",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        229,
+        70,
+        216,
+        190,
+        181,
+        95,
+        116,
+        121
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
+        },
+        {
+          "name": "controller_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "controller"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "delegation",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller"
+              },
+              {
+                "kind": "account",
+                "path": "delegation.rule_set_hash",
+                "account": "Delegation"
+              }
+            ]
+          }
+        },
+        {
+          "name": "delegation_vault",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "fee_payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "transfer_to_delegation",
+      "docs": [
+        ".",
+        "",
+        "# Errors",
+        "",
+        "This function will return an error if ."
+      ],
+      "discriminator": [
+        48,
+        76,
+        144,
+        43,
+        206,
+        166,
+        174,
+        17
+      ],
+      "accounts": [
+        {
+          "name": "controller",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  111,
+                  108,
+                  108,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller.owner",
+                "account": "Controller"
+              }
+            ]
+          }
+        },
+        {
+          "name": "controller_vault",
+          "writable": true
+        },
+        {
+          "name": "delegation",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "controller"
+              },
+              {
+                "kind": "account",
+                "path": "delegation.rule_set_hash",
+                "account": "Delegation"
+              }
+            ]
+          }
+        },
+        {
+          "name": "delegation_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "delegation"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "fee_payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
     }
   ],
   "accounts": [
+    {
+      "name": "Controller",
+      "discriminator": [
+        184,
+        79,
+        171,
+        0,
+        183,
+        43,
+        113,
+        110
+      ]
+    },
+    {
+      "name": "Delegation",
+      "discriminator": [
+        237,
+        90,
+        140,
+        159,
+        124,
+        255,
+        243,
+        80
+      ]
+    },
+    {
+      "name": "RuleAccumulator",
+      "discriminator": [
+        127,
+        132,
+        189,
+        170,
+        68,
+        38,
+        206,
+        135
+      ]
+    },
+    {
+      "name": "SpendRequest",
+      "discriminator": [
+        71,
+        251,
+        215,
+        71,
+        98,
+        153,
+        90,
+        25
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unknown",
+      "msg": "unknown error"
+    },
+    {
+      "code": 6001,
+      "name": "AmountOutOfRange",
+      "msg": "amount out of range"
+    },
+    {
+      "code": 6002,
+      "name": "RuleOutOfRange",
+      "msg": "rule out of range"
+    },
+    {
+      "code": 6003,
+      "name": "SpendRequestNoSpace",
+      "msg": "no space to store spend request"
+    },
+    {
+      "code": 6004,
+      "name": "RuleEvalFalse",
+      "msg": "rule evaluates to false"
+    },
+    {
+      "code": 6005,
+      "name": "RulesKeyDoesNotMatch",
+      "msg": "rules address lookup table key does not match"
+    },
+    {
+      "code": 6006,
+      "name": "RulesFailedToSerialize",
+      "msg": "failed to serialize rule"
+    },
+    {
+      "code": 6007,
+      "name": "RuleUnknown",
+      "msg": "unknown rule"
+    },
+    {
+      "code": 6008,
+      "name": "BadHash",
+      "msg": "bad hash"
+    },
+    {
+      "code": 6009,
+      "name": "RuleAddFail",
+      "msg": "failed to add rule"
+    },
+    {
+      "code": 6010,
+      "name": "RateLimiterMaxSpendCannotBeZero",
+      "msg": "rate limiter max spend is too low"
+    },
+    {
+      "code": 6011,
+      "name": "RateLimiterDeltaSlotMustBeGreaterThan100",
+      "msg": "rate limiter delta slot is below 100"
+    },
+    {
+      "code": 6012,
+      "name": "RuleAuthorizerConstraintMustMatch",
+      "msg": "rule authorizer does not match"
+    },
+    {
+      "code": 6013,
+      "name": "RuleProgramConstraintMustMatch",
+      "msg": "rule program owner does not match"
+    },
+    {
+      "code": 6014,
+      "name": "RuleRateLimiterSlotOutOfOrder",
+      "msg": "rule rate limiter slot out of order"
+    },
+    {
+      "code": 6015,
+      "name": "RuleRateLimiterCannotExceedSpendLimit",
+      "msg": "rule rate limiter spend exceeds limit"
+    },
+    {
+      "code": 6016,
+      "name": "RuleSweepNotEnoughFunds",
+      "msg": "rule sweep insufficient funds"
+    },
+    {
+      "code": 6017,
+      "name": "RuleSweepWrongDestination",
+      "msg": "rule sweep wrong destination"
+    },
+    {
+      "code": 6018,
+      "name": "RuleMaxBalanceExceeded",
+      "msg": "rule max constraint max exceeded"
+    },
+    {
+      "code": 6019,
+      "name": "BalanceInsufficient",
+      "msg": "insufficient amount"
+    },
+    {
+      "code": 6020,
+      "name": "EscrowUnlockSlotMustBeNonZero",
+      "msg": "escrow unlock slot must be non-zero"
+    },
+    {
+      "code": 6021,
+      "name": "EscrowExpirySlotMustBeAfterUnlock",
+      "msg": "escrow expiry slot must be strictly greater than unlock slot"
+    },
+    {
+      "code": 6022,
+      "name": "RuleEscrowConditionNotMet",
+      "msg": "escrow condition not met: neither release nor refund conditions are satisfied"
+    },
+    {
+      "code": 6023,
+      "name": "DelegationVaultNotEmpty",
+      "msg": "delegation vault must be empty before closing the delegation"
+    },
+    {
+      "code": 6024,
+      "name": "TreeTooLarge",
+      "msg": "tree serialization exceeds maximum allowed size"
+    }
+  ],
+  "types": [
     {
       "name": "Controller",
       "type": {
@@ -1275,14 +2797,14 @@
           },
           {
             "name": "owner",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
             "name": "rules",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
-            "name": "delegationCount",
+            "name": "delegation_count",
             "type": "u32"
           }
         ]
@@ -1299,14 +2821,14 @@
           },
           {
             "name": "controller",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
-            "name": "ruleSetCount",
+            "name": "rule_set_count",
             "type": "u8"
           },
           {
-            "name": "ruleSetHash",
+            "name": "rule_set_hash",
             "type": {
               "array": [
                 "u8",
@@ -1317,11 +2839,13 @@
           {
             "name": "state",
             "type": {
-              "defined": "SpendState"
+              "defined": {
+                "name": "SpendState"
+              }
             }
           },
           {
-            "name": "requestedSlot",
+            "name": "requested_slot",
             "type": "u64"
           }
         ]
@@ -1334,7 +2858,11 @@
         "fields": [
           {
             "name": "controller",
-            "type": "publicKey"
+            "type": "pubkey"
+          },
+          {
+            "name": "linker",
+            "type": "pubkey"
           },
           {
             "name": "index",
@@ -1363,18 +2891,22 @@
         "fields": [
           {
             "name": "delegation",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
             "name": "state",
             "type": {
-              "defined": "SpendState"
+              "defined": {
+                "name": "SpendState"
+              }
             }
           },
           {
             "name": "context",
             "type": {
-              "defined": "TransferContext"
+              "defined": {
+                "name": "TransferContext"
+              }
             }
           },
           {
@@ -1404,9 +2936,7 @@
           }
         ]
       }
-    }
-  ],
-  "types": [
+    },
     {
       "name": "SpendState",
       "type": {
@@ -1416,7 +2946,9 @@
             "name": "list",
             "type": {
               "vec": {
-                "defined": "SpendStateSlot"
+                "defined": {
+                  "name": "SpendStateSlot"
+                }
               }
             }
           }
@@ -1430,22 +2962,22 @@
         "fields": [
           {
             "name": "mint",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
             "name": "index",
             "type": "u64"
           },
           {
-            "name": "lastSpend",
+            "name": "last_spend",
             "type": "u64"
           },
           {
-            "name": "lastSlot",
+            "name": "last_slot",
             "type": "u64"
           },
           {
-            "name": "genericScore",
+            "name": "generic_score",
             "type": "u8"
           }
         ]
@@ -1457,24 +2989,24 @@
         "kind": "struct",
         "fields": [
           {
-            "name": "programId",
-            "type": "publicKey"
+            "name": "program_id",
+            "type": "pubkey"
           },
           {
             "name": "linker",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
-            "name": "sourceVault",
-            "type": "publicKey"
+            "name": "source_vault",
+            "type": "pubkey"
           },
           {
-            "name": "destinationVault",
-            "type": "publicKey"
+            "name": "destination_vault",
+            "type": "pubkey"
           },
           {
             "name": "mint",
-            "type": "publicKey"
+            "type": "pubkey"
           },
           {
             "name": "amount",
@@ -1485,33 +3017,11 @@
             "type": "u64"
           },
           {
-            "name": "isSweep",
+            "name": "is_sweep",
             "type": "bool"
           }
         ]
       }
-    }
-  ],
-  "errors": [
-    {
-      "code": 6000,
-      "name": "Unknown",
-      "msg": "unknown error"
-    },
-    {
-      "code": 6001,
-      "name": "FailedToRead",
-      "msg": "failed to read"
-    },
-    {
-      "code": 6002,
-      "name": "BadBoolean",
-      "msg": "Bad Boolean"
-    },
-    {
-      "code": 6003,
-      "name": "IndexOutOfRange",
-      "msg": "Index out of range"
     }
   ]
 }
